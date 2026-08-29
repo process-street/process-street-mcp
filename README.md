@@ -29,7 +29,12 @@ Access remains subject to the user's Process Street permissions. Organizations t
 
 ## Registry metadata
 
-[`server.json`](server.json) is prepared for the [Official MCP Registry](https://modelcontextprotocol.io/registry/about). Registry publication is intentionally handled as a separate, reviewed release step because published versions are immutable.
+[`server.json`](server.json) is published in the [Official MCP Registry](https://modelcontextprotocol.io/registry/about) as `io.github.process-street/process-street-mcp` version `1.0.0`.
+
+- [Official Registry API record, v0.1](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.process-street%2Fprocess-street-mcp)
+- [Official Registry API record, v0](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.process-street%2Fprocess-street-mcp)
+
+Published Registry versions are immutable. Any metadata correction must use a new unique version.
 
 ## Resources
 

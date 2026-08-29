@@ -1,26 +1,26 @@
-# Publishing checklist
+# Publishing and release checklist
 
-Publication changes public systems and must be explicitly approved before these steps are run.
+Registry publication changes public systems and must be explicitly approved before a new version is released.
 
-## Proposed public repository
+## Public repository and Registry record
 
 - GitHub organization: `process-street`
 - Repository: `process-street-mcp`
 - Visibility: public
 - Registry server name: `io.github.process-street/process-street-mcp`
+- Published version: `1.0.0`
 
-The proposed name does not conflict with the existing private `process-street/mcp-server` repository. Do not copy private server code, infrastructure configuration, secrets, or internal documentation into this repository.
+This metadata-only repository is separate from the existing private `process-street/mcp-server` implementation repository. Do not copy private server code, infrastructure configuration, secrets, customer information, or internal documentation into this repository.
 
-## Release gate
+## Future release gate
 
-1. Confirm authorization to create the public repository in the `process-street` organization.
-2. Re-run `./scripts/validate.sh` and review every file for sensitive information.
-3. Create the public repository only after approval of the exact account, name, and visibility above.
-4. Push the reviewed local commit.
-5. Authenticate the official `mcp-publisher` CLI with a GitHub identity authorized for the `process-street` organization.
-6. Validate and publish `server.json`.
-7. Verify the exact version in both Official MCP Registry API versions and the Registry website.
-8. Add the published Registry URL and timestamp to the distribution tracker and operational task.
-9. Check downstream directories after they have had time to ingest the Registry. Do not assume a guaranteed ingestion interval.
+1. Use a new unique semantic version in `server.json`. Published Registry versions are immutable.
+2. Re-run `./scripts/validate.sh` and review every tracked file and commit for sensitive information.
+3. Confirm the repository, remote endpoint, documentation, support, privacy, and security links are still public and accurate.
+4. Obtain explicit approval for the exact `server.json` payload and version.
+5. Push the reviewed repository commit.
+6. Authenticate `mcp-publisher` with a GitHub identity authorized for the `process-street` organization.
+7. Publish `server.json` and verify the exact version through both Official MCP Registry API versions.
+8. Update the distribution tracker and check downstream directories after they have had time to ingest the Registry. Do not assume a guaranteed ingestion interval.
 
 Any metadata correction after publication requires a new unique version in `server.json`.
