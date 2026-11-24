@@ -16,6 +16,28 @@ The server uses Streamable HTTP. Compatible clients can use the interactive auth
 
 See the [Process Street MCP Server guide](https://www.process.st/help/docs/mcp-server/) for setup instructions for supported clients.
 
+## Cursor plugin
+
+This repository is also a [Cursor plugin](https://cursor.com/docs/plugins) for the Cursor Marketplace:
+
+- [`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) is the plugin manifest.
+- [`mcp.json`](mcp.json) adds the hosted server at `https://mcp.process.st/`.
+- [`assets/logo.svg`](assets/logo.svg) is the Marketplace logo.
+
+After installing the plugin, Cursor shows the server as `plugin-process-street-process-street`. The first time it connects, Cursor opens the Process Street sign-in and consent screen. Cursor registers itself through Dynamic Client Registration, so no client ID or secret is needed. To revoke access later, go to Profile → Apps in Process Street.
+
+To use it without the Marketplace, add the same entry to `~/.cursor/mcp.json` or a project's `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "process-street": {
+      "url": "https://mcp.process.st/"
+    }
+  }
+}
+```
+
 ## Capabilities and access
 
 The server exposes Process Street operations as MCP tools. Depending on the connected user's permissions, these tools can help an AI client:

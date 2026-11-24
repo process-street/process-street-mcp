@@ -31,6 +31,31 @@ if path.stat().st_size > 4096:
 print("Local manifest checks passed")
 PY
 
+python3 - "$repo_dir" <<'PY'
+import json
+import pathlib
+import re
+import sys
+
+root = pathlib.Path(sys.argv[1])
+plugin = json.loads((root / ".cursor-plugin" / "plugin.json").read_text())
+if not re.fullmatch(r"[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?", plugin.get("name", "")):
+    raise SystemExit("Cursor plugin name must be lowercase kebab-case")
+if not plugin.get("description"):
+    raise SystemExit("Cursor plugin description is required")
+logo = plugin.get("logo")
+if logo:
+    if logo.startswith("/") or ".." in pathlib.PurePosixPath(logo).parts:
+        raise SystemExit("Cursor plugin logo must be a relative path inside the repository")
+    if not (root / logo).is_file():
+        raise SystemExit(f"Cursor plugin logo not found: {logo}")
+mcp = json.loads((root / "mcp.json").read_text())
+if mcp != {"mcpServers": {"process-street": {"url": "https://mcp.process.st/"}}}:
+    raise SystemExit("Unexpected Cursor plugin mcp.json configuration")
+
+print("Cursor plugin checks passed")
+PY
+
 validation_response="$(curl --fail --silent --show-error \
   --request POST \
   --header 'Content-Type: application/json' \

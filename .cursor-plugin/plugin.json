@@ -1,0 +1,20 @@
+{
+  "name": "process-street",
+  "description": "Connect Cursor to Process Street workflows, workflow runs, tasks, users, data sets, and operational records through Process Street's hosted MCP server.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Process Street"
+  },
+  "homepage": "https://www.process.st/help/docs/mcp-server/",
+  "repository": "https://github.com/process-street/process-street-mcp",
+  "keywords": [
+    "process-street",
+    "workflows",
+    "checklists",
+    "tasks",
+    "sop",
+    "operations",
+    "mcp"
+  ],
+  "logo": "assets/logo.svg"
+}
