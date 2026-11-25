@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.process-street/process-street-mcp",
+  "name": "st.process/mcp",
   "title": "Process Street",
   "description": "Connect AI agents to Process Street workflows, tasks, runs, data sets, and operational records.",
   "version": "1.0.0",
