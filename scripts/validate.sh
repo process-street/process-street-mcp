@@ -21,6 +21,10 @@ if missing:
 
 if not re.fullmatch(r"[a-zA-Z0-9.-]+/[a-zA-Z0-9._-]+", data["name"]):
     raise SystemExit("Invalid Registry server name")
+# The Registry ties a name to the identity that publishes it. We publish with
+# DNS authentication on process.st, which only grants the st.process namespace.
+if not re.fullmatch(r"st\.process(\.[a-zA-Z0-9-]+)*/[a-zA-Z0-9._-]+", data["name"]):
+    raise SystemExit("Registry server name must be in the st.process namespace (DNS authentication on process.st)")
 if len(data["description"]) > 100:
     raise SystemExit("Description exceeds the Registry's 100-character limit")
 if data.get("remotes") != [{"type": "streamable-http", "url": "https://mcp.process.st/"}]:

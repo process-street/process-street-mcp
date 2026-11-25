@@ -51,10 +51,12 @@ Access remains subject to the user's Process Street permissions. Organizations t
 
 ## Registry metadata
 
-[`server.json`](server.json) is published in the [Official MCP Registry](https://modelcontextprotocol.io/registry/about) as `io.github.process-street/process-street-mcp` version `1.0.0`.
+[`server.json`](server.json) is Process Street's entry in the [Official MCP Registry](https://modelcontextprotocol.io/registry/about), under the name `st.process/mcp`. Process Street proves ownership of the name with a DNS record on `process.st`.
 
-- [Official Registry API record, v0.1](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.process-street%2Fprocess-street-mcp)
-- [Official Registry API record, v0](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.process-street%2Fprocess-street-mcp)
+- [Official Registry API record, v0.1](https://registry.modelcontextprotocol.io/v0.1/servers?search=st.process%2Fmcp)
+- [Official Registry API record, v0](https://registry.modelcontextprotocol.io/v0/servers?search=st.process%2Fmcp)
+
+This entry replaces `io.github.process-street/process-street-mcp`, the earlier listing published with GitHub authentication.
 
 Published Registry versions are immutable. Any metadata correction must use a new unique version.
 
